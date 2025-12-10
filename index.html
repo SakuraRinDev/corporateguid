@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>出展企業向けご案内 | 大阪AI文化万博</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Serif+JP:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
+    <style>
+        /* Page-specific styles */
+        .mt-40 {
+            margin-top: 40px;
+        }
+
+        .mt-60 {
+            margin-top: 60px;
+        }
+
+        .mt-80 {
+            margin-top: 80px;
+        }
+
+        /* Summary Section - First Impression */
+        .summary-box {
+            border: 2px solid var(--neon-green);
+            padding: 50px;
+            margin-top: 50px;
+            position: relative;
+            background: rgba(57, 255, 20, 0.02);
+        }
+
+        body.phase-b .summary-box {
+            background: rgba(57, 255, 20, 0.05);
+            box-shadow: 0 0 40px rgba(57, 255, 20, 0.1);
+        }
+
+        .summary-box::before {
+            content: 'SUMMARY';
+            position: absolute;
+            top: -12px;
+            left: 30px;
+            background: var(--current-bg);
+            padding: 0 15px;
+            font-family: var(--font-data);
+            font-size: 11px;
+            letter-spacing: 0.2em;
+            color: var(--neon-green);
+        }
+
+        body.phase-b .summary-box::before {
+            background: var(--phase-b-bg);
+            text-shadow: 0 0 10px var(--neon-green);
+        }
+
+        .summary-points {
+            list-style: none;
+        }
+
+        .summary-points li {
+            padding: 18px 0 18px 28px;
+            border-bottom: 1px solid var(--current-line);
+            font-size: 1.15rem;
+            line-height: 1.8;
+            position: relative;
+        }
+
+        body.phase-b .summary-points li {
+            border-color: var(--phase-b-line);
+        }
+
+        .summary-points li:last-child {
+            border-bottom: none;
+        }
+
+        .summary-points li::before {
+            content: '▸';
+            color: var(--neon-green);
+            font-size: 14px;
+            position: absolute;
+            left: 0;
+            top: 20px;
+        }
+
+        .summary-highlight {
+            background: linear-gradient(transparent 60%, rgba(57, 255, 20, 0.2) 60%);
+            padding: 0 4px;
+            font-weight: 600;
+        }
+
+        body.phase-b .summary-highlight {
+            background: linear-gradient(transparent 60%, rgba(57, 255, 20, 0.3) 60%);
+        }
+
+        /* Plan Cards - Redesigned */
+        .plan-section {
+            margin-top: 60px;
+        }
+
+        .plan-card-large {
+            border: 1px solid var(--current-line);
+            margin-bottom: 40px;
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        body.phase-b .plan-card-large {
+            border-color: var(--phase-b-line);
+        }
+
+        .plan-card-large:hover {
+            border-color: var(--neon-cyan);
+        }
+
+        body.phase-b .plan-card-large:hover {
+            box-shadow: 0 0 30px rgba(0, 245, 255, 0.1);
+        }
+
+        .plan-card-large.featured {
+            border-color: var(--neon-green);
+            border-width: 2px;
+        }
+
+        body.phase-b .plan-card-large.featured {
+            box-shadow: 0 0 40px rgba(57, 255, 20, 0.15);
+        }
+
+        .plan-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 40px;
+            border-bottom: 1px solid var(--current-line);
+            background: rgba(0, 0, 0, 0.02);
+        }
+
+        body.phase-b .plan-header {
+            background: rgba(255, 255, 255, 0.02);
+            border-color: var(--phase-b-line);
+        }
+
+        .plan-card-large.featured .plan-header {
+            background: rgba(57, 255, 20, 0.05);
+        }
+
+        .plan-title-group {
+            display: flex;
+            align-items: baseline;
+            gap: 20px;
+        }
+
+        .plan-badge {
+            font-family: var(--font-data);
+            font-size: 10px;
+            letter-spacing: 0.15em;
+            color: var(--current-muted);
+        }
+
+        body.phase-b .plan-badge {
+            color: var(--neon-cyan);
+        }
+
+        .plan-card-large.featured .plan-badge {
+            color: var(--neon-green);
+        }
+
+        .plan-name {
+            font-size: 1.6rem;
+            font-weight: 600;
+        }
+
+        .plan-price-group {
+            text-align: right;
+        }
+
+        .plan-price {
+            font-family: var(--font-data);
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: var(--neon-green);
+        }
+
+        body.phase-b .plan-price {
+            text-shadow: 0 0 20px rgba(57, 255, 20, 0.5);
+        }
+
+        .plan-price-note {
+            font-family: var(--font-data);
+            font-size: 11px;
+            color: var(--current-muted);
+            margin-top: 5px;
+        }
+
+        .plan-desc {
+            padding: 25px 40px;
+            background: rgba(0, 0, 0, 0.01);
+            border-bottom: 1px solid var(--current-line);
+            color: var(--current-muted);
+            font-size: 0.95rem;
+        }
+
+        body.phase-b .plan-desc {
+            border-color: var(--phase-b-line);
+        }
+
+        .plan-body {
+            padding: 35px 40px;
+        }
+
+        .plan-section-title {
+            font-family: var(--font-data);
+            font-size: 11px;
+            letter-spacing: 0.15em;
+            color: var(--neon-cyan);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .plan-section-title::before {
+            content: '';
+            width: 20px;
+            height: 1px;
+            background: var(--neon-cyan);
+        }
+
+        .plan-features {
+            list-style: none;
+        }
+
+        .plan-features li {
+            padding: 12px 0 12px 24px;
+            border-bottom: 1px solid var(--current-line);
+            font-size: 0.95rem;
+            position: relative;
+        }
+
+        body.phase-b .plan-features li {
+            border-color: var(--phase-b-line);
+        }
+
+        .plan-features li:last-child {
+            border-bottom: none;
+        }
+
+        .plan-features li::before {
+            content: '✓';
+            color: var(--neon-green);
+            font-size: 12px;
+            position: absolute;
+            left: 0;
+            top: 14px;
+        }
+
+        .plan-features .sub-item {
+            padding-left: 48px;
+            color: var(--current-muted);
+            font-size: 0.9rem;
+        }
+
+        .plan-features .sub-item::before {
+            content: '›';
+            color: var(--current-muted);
+            left: 24px;
+        }
+
+        body.phase-b .plan-features .sub-item::before {
+            color: var(--neon-green);
+        }
+
+        .plan-note-box {
+            margin-top: 25px;
+            padding: 20px;
+            background: rgba(255, 20, 147, 0.03);
+            border-left: 3px solid var(--neon-pink);
+            font-family: var(--font-data);
+            font-size: 12px;
+            line-height: 1.7;
+        }
+
+        body.phase-b .plan-note-box {
+            background: rgba(255, 20, 147, 0.08);
+        }
+
+        /* Format Quick Reference */
+        .format-quick {
+            margin-top: 50px;
+        }
+
+        .format-quick-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .format-quick-item {
+            border: 1px solid var(--current-line);
+            padding: 25px;
+            transition: all 0.3s ease;
+        }
+
+        body.phase-b .format-quick-item {
+            border-color: var(--phase-b-line);
+        }
+
+        .format-quick-item:hover {
+            border-color: var(--neon-cyan);
+            transform: translateY(-3px);
+        }
+
+        .format-quick-badge {
+            font-family: var(--font-data);
+            font-size: 10px;
+            letter-spacing: 0.15em;
+            color: var(--neon-green);
+            margin-bottom: 12px;
+        }
+
+        .format-quick-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .format-quick-items {
+            font-size: 0.85rem;
+            color: var(--current-muted);
+            line-height: 1.7;
+        }
+
+        /* Format Details */
+        .format-detail {
+            border: 1px solid var(--current-line);
+            padding: 40px;
+            margin-top: 40px;
+            position: relative;
+        }
+
+        body.phase-b .format-detail {
+            border-color: var(--phase-b-line);
+        }
+
+        .format-detail-badge {
+            font-family: var(--font-data);
+            font-size: 12px;
+            letter-spacing: 0.2em;
+            color: var(--neon-cyan);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .format-detail-badge::before {
+            content: '';
+            width: 30px;
+            height: 1px;
+            background: var(--neon-cyan);
+        }
+
+        .format-detail h4 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .format-detail>p {
+            color: var(--current-muted);
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .format-detail-list {
+            list-style: none;
+            font-size: 0.95rem;
+        }
+
+        .format-detail-list li {
+            padding: 10px 0 10px 20px;
+            border-bottom: 1px solid var(--current-line);
+            position: relative;
+        }
+
+        body.phase-b .format-detail-list li {
+            border-color: var(--phase-b-line);
+        }
+
+        .format-detail-list li:last-child {
+            border-bottom: none;
+        }
+
+        .format-detail-list li::before {
+            content: '›';
+            color: var(--neon-green);
+            position: absolute;
+            left: 0;
+            top: 10px;
+        }
+
+        /* Award Option Box */
+        .award-option-box {
+            margin-top: 30px;
+            padding: 30px;
+            border: 1px dashed var(--neon-cyan);
+            background: rgba(0, 245, 255, 0.02);
+        }
+
+        body.phase-b .award-option-box {
+            background: rgba(0, 245, 255, 0.05);
+        }
+
+        .award-option-title {
+            font-family: var(--font-data);
+            font-size: 11px;
+            letter-spacing: 0.15em;
+            color: var(--neon-cyan);
+            margin-bottom: 15px;
+        }
+
+        .award-option-box h5 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .award-option-list {
+            list-style: none;
+            font-size: 0.9rem;
+        }
+
+        .award-option-list li {
+            padding: 8px 0 8px 20px;
+            color: var(--current-muted);
+            position: relative;
+        }
+
+        .award-option-list li::before {
+            content: '▸';
+            color: var(--neon-cyan);
+            font-size: 10px;
+            position: absolute;
+            left: 0;
+            top: 10px;
+        }
+
+        .award-result {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid var(--current-line);
+            font-size: 0.95rem;
+        }
+
+        body.phase-b .award-result {
+            border-color: var(--phase-b-line);
+        }
+
+        /* Merit Cards */
+        .merit-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .merit-card {
+            border: 1px solid var(--current-line);
+            padding: 35px;
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        body.phase-b .merit-card {
+            border-color: var(--phase-b-line);
+        }
+
+        .merit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: var(--neon-green);
+            transition: height 0.4s ease;
+        }
+
+        .merit-card:hover::before {
+            height: 100%;
+        }
+
+        body.phase-b .merit-card:hover::before {
+            box-shadow: 0 0 15px var(--neon-green);
+        }
+
+        .merit-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--neon-cyan);
+        }
+
+        .merit-number {
+            font-family: var(--font-data);
+            font-size: 11px;
+            letter-spacing: 0.15em;
+            color: var(--neon-green);
+            margin-bottom: 15px;
+        }
+
+        .merit-card h4 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .merit-card>p {
+            font-size: 0.9rem;
+            color: var(--current-muted);
+            line-height: 1.8;
+        }
+
+        .merit-card ul {
+            list-style: none;
+            margin-top: 15px;
+            font-size: 0.85rem;
+        }
+
+        .merit-card li {
+            padding: 6px 0 6px 18px;
+            color: var(--current-muted);
+            position: relative;
+        }
+
+        .merit-card li::before {
+            content: '›';
+            color: var(--neon-green);
+            position: absolute;
+            left: 0;
+            top: 6px;
+        }
+
+        .merit-card.highlight {
+            border-color: var(--neon-green);
+            background: rgba(57, 255, 20, 0.02);
+        }
+
+        body.phase-b .merit-card.highlight {
+            background: rgba(57, 255, 20, 0.05);
+        }
+
+        .highlight-badge {
+            display: inline-block;
+            font-family: var(--font-data);
+            font-size: 9px;
+            letter-spacing: 0.1em;
+            padding: 4px 10px;
+            background: var(--neon-green);
+            color: #000;
+            margin-bottom: 15px;
+        }
+
+        /* Scale Section */
+        .scale-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-top: 50px;
+        }
+
+        .scale-metrics {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .scale-item {
+            border: 1px solid var(--current-line);
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        body.phase-b .scale-item {
+            border-color: var(--phase-b-line);
+        }
+
+        .scale-item:hover {
+            border-color: var(--neon-green);
+        }
+
+        .scale-value {
+            font-family: var(--font-data);
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--neon-green);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        body.phase-b .scale-value {
+            text-shadow: 0 0 15px rgba(57, 255, 20, 0.5);
+        }
+
+        .scale-label {
+            font-family: var(--font-data);
+            font-size: 9px;
+            letter-spacing: 0.15em;
+            color: var(--current-muted);
+        }
+
+        .audience-breakdown {
+            border: 1px solid var(--current-line);
+            padding: 30px;
+        }
+
+        body.phase-b .audience-breakdown {
+            border-color: var(--phase-b-line);
+        }
+
+        .audience-breakdown h4 {
+            font-family: var(--font-data);
+            font-size: 11px;
+            letter-spacing: 0.2em;
+            color: var(--neon-cyan);
+            margin-bottom: 20px;
+        }
+
+        .audience-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--current-line);
+        }
+
+        body.phase-b .audience-item {
+            border-color: var(--phase-b-line);
+        }
+
+        .audience-item:last-child {
+            border-bottom: none;
+        }
+
+        .audience-percent {
+            font-family: var(--font-data);
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--neon-green);
+            min-width: 40px;
+        }
+
+        .audience-bar {
+            flex: 1;
+            height: 4px;
+            background: var(--current-line);
+        }
+
+        .audience-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--neon-green), var(--neon-cyan));
+        }
+
+        body.phase-b .audience-bar-fill {
+            box-shadow: 0 0 8px rgba(57, 255, 20, 0.5);
+        }
+
+        .audience-name {
+            font-size: 0.85rem;
+            min-width: 160px;
+        }
+
+        /* Exposure Section */
+        .exposure-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .exposure-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 25px;
+            border: 1px solid var(--current-line);
+            transition: all 0.3s ease;
+        }
+
+        body.phase-b .exposure-item {
+            border-color: var(--phase-b-line);
+        }
+
+        .exposure-item:hover {
+            border-color: var(--neon-cyan);
+            transform: translateX(5px);
+        }
+
+        .exposure-icon {
+            font-family: var(--font-data);
+            font-size: 18px;
+            color: var(--neon-cyan);
+            min-width: 25px;
+            text-align: center;
+        }
+
+        body.phase-b .exposure-icon {
+            text-shadow: 0 0 10px var(--neon-cyan);
+        }
+
+        .exposure-content h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .exposure-content p {
+            font-size: 0.85rem;
+            color: var(--current-muted);
+            line-height: 1.7;
+        }
+
+        .exposure-note {
+            margin-top: 30px;
+            padding: 20px 25px;
+            background: rgba(0, 245, 255, 0.02);
+            border-left: 3px solid var(--neon-cyan);
+            font-size: 0.9rem;
+            color: var(--current-muted);
+        }
+
+        body.phase-b .exposure-note {
+            background: rgba(0, 245, 255, 0.05);
+        }
+
+        /* Award Section (Final) */
+        .award-showcase {
+            margin-top: 50px;
+            padding: 50px;
+            border: 2px solid var(--neon-cyan);
+            position: relative;
+            background: rgba(0, 245, 255, 0.02);
+        }
+
+        body.phase-b .award-showcase {
+            background: rgba(0, 245, 255, 0.05);
+            box-shadow: 0 0 40px rgba(0, 245, 255, 0.1);
+        }
+
+        .award-showcase::before,
+        .award-showcase::after {
+            content: '+';
+            position: absolute;
+            font-family: var(--font-data);
+            font-size: 14px;
+            color: var(--neon-cyan);
+        }
+
+        .award-showcase::before {
+            top: -8px;
+            left: -8px;
+        }
+
+        .award-showcase::after {
+            bottom: -8px;
+            right: -8px;
+        }
+
+        .award-label {
+            font-family: var(--font-data);
+            font-size: 11px;
+            letter-spacing: 0.2em;
+            color: var(--neon-cyan);
+            margin-bottom: 20px;
+        }
+
+        .award-showcase h3 {
+            font-size: 1.6rem;
+            margin: 0 0 20px;
+        }
+
+        .award-showcase>p {
+            color: var(--current-muted);
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .award-features {
+            list-style: none;
+        }
+
+        .award-features li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--current-line);
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+        }
+
+        body.phase-b .award-features li {
+            border-color: var(--phase-b-line);
+        }
+
+        .award-features li:last-child {
+            border-bottom: none;
+        }
+
+        .award-features li::before {
+            content: '▸';
+            color: var(--neon-cyan);
+        }
+
+        .award-result-final {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(57, 255, 20, 0.05);
+            border: 1px solid var(--neon-green);
+            font-size: 1rem;
+        }
+
+        body.phase-b .award-result-final {
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .summary-box {
+                padding: 35px;
+            }
+
+            .plan-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+
+            .plan-price-group {
+                text-align: left;
+            }
+
+            .plan-body {
+                padding: 30px;
+            }
+
+            .format-quick-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .merit-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .scale-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .exposure-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .summary-box {
+                padding: 25px;
+            }
+
+            .summary-points li {
+                font-size: 1rem;
+            }
+
+            .plan-header,
+            .plan-body {
+                padding: 25px;
+            }
+
+            .plan-desc {
+                padding: 20px 25px;
+            }
+
+            .format-detail {
+                padding: 30px;
+            }
+
+            .scale-metrics {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .audience-name {
+                min-width: auto;
+                font-size: 0.8rem;
+            }
+
+            .award-showcase {
+                padding: 35px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .scale-metrics {
+                grid-template-columns: 1fr;
+            }
+
+            .scale-value {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Technical Overlays -->
+    <div class="grid-overlay"></div>
+    <div class="data-stream"></div>
+    <div class="thread" id="thread"></div>
+
+    <!-- Back Link -->
+    <a href="index.html" class="back-link">←</a>
+
+    <!-- Coordinate Display -->
+    <div class="coordinates">
+        <span id="scroll-percent">SCROLL: 0%</span>
+        <span id="phase-display">PHASE: A</span>
+        <span id="section-display">SEC: HERO</span>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#hero" class="active" data-section="HERO">TOP</a></li>
+            <li><a href="#section1" data-section="01">プラン</a></li>
+            <li><a href="#section2" data-section="02">形式</a></li>
+            <li><a href="#section3" data-section="03">メリット</a></li>
+            <li><a href="#section4" data-section="04">規模</a></li>
+            <li><a href="#section5" data-section="05">露出</a></li>
+        </ul>
+    </nav>
+
+    <main id="content">
+
+        <!-- Hero Section with Summary -->
+        <section class="hero" id="hero">
+            <div class="hero-label">
+                <span>OSAKA AI CULTURE EXPO / CORPORATE GUIDE</span>
+            </div>
+            <h1>
+                大阪AI文化万博<br>
+                <em>出展企業向けご案内</em>
+            </h1>
+            <p class="hero-subtitle">
+                AIツールの「実ユーザー」が集まる場で、<br>
+                プロダクトの価値を最大化する出展機会。
+            </p>
+
+            <!-- Summary Box - First Impression -->
+            <div class="summary-box">
+                <ul class="summary-points">
+                    <li>関西圏の学生・クリエイター・企業DX担当、一般来場者が集まる<span class="summary-highlight">「AI活用の見本市」</span>です。</li>
+                    <li>先着数社は<span class="summary-highlight">出展無料（ブース＋ロゴ掲載付き）</span>の特別枠をご用意しています。</li>
+                    <li>AIツールの実ユーザーである<span class="summary-highlight">クリエイター／学生／エンジニア／DX担当</span>と、直接つながれるリアルイベントです。
+                    </li>
+                </ul>
+            </div>
+
+            <div class="hero-data">
+                <div>
+                    <label>TARGET</label>
+                    <span>AI TOOL VENDORS</span>
+                </div>
+                <div>
+                    <label>AUDIENCE</label>
+                    <span>800-1,200</span>
+                </div>
+                <div>
+                    <label>BASIC PLAN</label>
+                    <span>FREE</span>
+                </div>
+            </div>
+
+            <div class="scroll-indicator">
+                SCROLL
+            </div>
+        </section>
+
+        <!-- Section 1: 出展プラン・料金 -->
+        <section id="section1" class="fade-in">
+            <div class="section-number">01</div>
+            <div class="section-marker">SECTION 01 — EXHIBITION PLANS & PRICING</div>
+
+            <h2>出展プラン・料金</h2>
+            <p class="section-lead">目的とご予算に応じて3つのプランをご用意</p>
+
+            <div class="plan-section">
+                <!-- Basic Plan -->
+                <div class="plan-card-large featured">
+                    <div class="plan-header">
+                        <div class="plan-title-group">
+                            <span class="plan-badge">PLAN_BASIC</span>
+                            <span class="plan-name">ベーシック（出展枠）</span>
+                        </div>
+                        <div class="plan-price-group">
+                            <div class="plan-price">¥0</div>
+                            <div class="plan-price-note">先着特別価格</div>
+                        </div>
+                    </div>
+                    <div class="plan-desc">
+                        「まずは存在感を出したい」「試しに出展したい」企業向けの基本プランです。
+                    </div>
+                    <div class="plan-body">
+                        <div class="plan-section-title">含まれる内容</div>
+                        <ul class="plan-features">
+                            <li>ブース展示</li>
+                            <li class="sub-item">プロダクトデモ</li>
+                            <li class="sub-item">トライアルコード配布 など</li>
+                            <li>ロゴ掲載</li>
+                            <li class="sub-item">会場サイネージ</li>
+                            <li class="sub-item">特設サイトへの掲載</li>
+                            <li>ビデオメッセージ掲出（任意）</li>
+                            <li class="sub-item">CEO／PM／担当者からの短尺コメント動画（数秒〜でOK）</li>
+                            <li>完全"手離れ"参加も可能</li>
+                            <li class="sub-item">プロダクト提供（PCにツールを入れる等）だけ</li>
+                            <li class="sub-item">展示・紹介・導線設計は運営側がすべて代行</li>
+                        </ul>
+                        <div class="plan-note-box">
+                            ※無料枠は先着数社のみです。枠が埋まり次第、本プランは有償でのご案内、または上位プランのみのご案内となります。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Standard Plan -->
+                <div class="plan-card-large">
+                    <div class="plan-header">
+                        <div class="plan-title-group">
+                            <span class="plan-badge">PLAN_STANDARD</span>
+                            <span class="plan-name">スタンダード</span>
+                        </div>
+                        <div class="plan-price-group">
+                            <div class="plan-price">¥100,000</div>
+                        </div>
+                    </div>
+                    <div class="plan-desc">
+                        「しっかりプロダクトを説明したい」「導入事例も発信したい」企業向けの中核プランです。
+                    </div>
+                    <div class="plan-body">
+                        <div class="plan-section-title">含まれる内容</div>
+                        <ul class="plan-features">
+                            <li>ベーシックのすべて</li>
+                            <li>ライトニングトーク枠（10分）</li>
+                            <li class="sub-item">プロダクト紹介</li>
+                            <li class="sub-item">ユースケース／導入事例</li>
+                            <li class="sub-item">新機能アップデート 等</li>
+                            <li>特設サイトでの企業紹介ページ</li>
+                            <li class="sub-item">ロゴ＋画像＋テキスト</li>
+                            <li>名刺交換しやすい導線設計</li>
+                            <li class="sub-item">DX担当者・中小企業・自治体との接点が生まれやすい配置・導線</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Premium Plan -->
+                <div class="plan-card-large">
+                    <div class="plan-header">
+                        <div class="plan-title-group">
+                            <span class="plan-badge">PLAN_PREMIUM</span>
+                            <span class="plan-name">プレミアム</span>
+                        </div>
+                        <div class="plan-price-group">
+                            <div class="plan-price">¥300,000</div>
+                        </div>
+                    </div>
+                    <div class="plan-desc">
+                        「プロダクトを軸に、作品づくり・コミュニティごと巻き込みたい」企業向けの最上位プランです。
+                    </div>
+                    <div class="plan-body">
+                        <div class="plan-section-title">含まれる内容</div>
+                        <ul class="plan-features">
+                            <li>スタンダードのすべて</li>
+                            <li>開催前期間でのハッカソン連携</li>
+                            <li class="sub-item">クリエイター／学生が、御社ツールで作品を制作</li>
+                            <li class="sub-item">そのまま展示し「本作品は◯◯ツールで制作（◯◯社提供）」と明記</li>
+                            <li class="sub-item">制作実例を通した自然なプロダクト訴求が可能</li>
+                            <li>会場サイネージでの優先表示</li>
+                            <li>レポート記事での簡易インタビュー掲載</li>
+                            <li class="sub-item">イベント後も残るアーカイブとして、継続的な認知獲得に貢献</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: 出展形式とプランの対応 -->
+        <section id="section2" class="fade-in">
+            <div class="section-number">02</div>
+            <div class="section-marker">SECTION 02 — FORMATS & PLAN MAPPING</div>
+
+            <h2>出展形式とプランの対応</h2>
+            <p class="section-lead">プランごとに利用可能な出展形式</p>
+
+            <!-- Quick Reference -->
+            <div class="format-quick">
+                <div class="tech-box">
+                    <p class="eyebrow tight mb-15">QUICK_REFERENCE</p>
+                    <div class="format-quick-grid">
+                        <div class="format-quick-item">
+                            <div class="format-quick-badge">BASIC</div>
+                            <div class="format-quick-name">ベーシック</div>
+                            <div class="format-quick-items">ブース展示 / ロゴ掲載 / ビデオメッセージ（任意）</div>
+                        </div>
+                        <div class="format-quick-item">
+                            <div class="format-quick-badge">STANDARD</div>
+                            <div class="format-quick-name">スタンダード</div>
+                            <div class="format-quick-items">ベーシック内容 ＋ ライトニングトーク（10分）</div>
+                        </div>
+                        <div class="format-quick-item">
+                            <div class="format-quick-badge">PREMIUM</div>
+                            <div class="format-quick-name">プレミアム</div>
+                            <div class="format-quick-items">スタンダード内容 ＋ ハッカソン連携</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="mt-80">各形式のイメージ詳細</h3>
+
+            <!-- Format A: Booth -->
+            <div class="format-detail">
+                <div class="format-detail-badge">FORMAT_A</div>
+                <h4>ブース展示（基本）</h4>
+                <p>展示スペースでのプロダクト掲示。手離れ参加の場合は、事前にいただいた資料・ツールをもとに運営側が代行展示します。</p>
+                <ul class="format-detail-list">
+                    <li>プロダクトデモ</li>
+                    <li>トライアルコード配布（任意）</li>
+                    <li>専門スタッフによる説明・対話</li>
+                </ul>
+
+                <!-- Award Option within Booth -->
+                <div class="award-option-box">
+                    <div class="award-option-title">OPTION — 企業冠の賞（ネーミングライツ的ポジション）</div>
+                    <h5>ご希望企業には、企業冠の賞を設定いただけます</h5>
+                    <ul class="award-option-list">
+                        <li>「◯◯ Creative Award」など、企業名入りの賞を設置可能</li>
+                        <li>賞金は不要で、名誉・認知目的のみでOK</li>
+                        <li>作品のピックアップは主催側で事前選定 → 企業側は、選定済みの数点から選ぶだけの"手離れ設計"</li>
+                    </ul>
+                    <div class="award-result">
+                        企業の世界観に合った<strong>"作品 × ブランド"の接点</strong>を創出できます。
+                    </div>
+                </div>
+            </div>
+
+            <!-- Format B: Lightning Talk -->
+            <div class="format-detail">
+                <div class="format-detail-badge">FORMAT_B</div>
+                <h4>ライトニングトーク（10分）</h4>
+                <p>「プロダクトの考え方」「どんな課題を解決するのか」までしっかり伝えられるプレゼンテーション形式。</p>
+                <ul class="format-detail-list">
+                    <li>プロダクトの全体像紹介</li>
+                    <li>ユースケース／導入事例の共有</li>
+                    <li>新機能アップデート・ロードマップの発信</li>
+                </ul>
+            </div>
+
+            <!-- Format C: Video Message -->
+            <div class="format-detail">
+                <div class="format-detail-badge">FORMAT_C</div>
+                <h4>ビデオメッセージ（企業キーパーソン）</h4>
+                <p>現地参加が難しい場合でも、"顔の見える存在感"を出せます。</p>
+                <ul class="format-detail-list">
+                    <li>CEO・代表・PM・担当者からの公式コメント動画を会場で放映</li>
+                    <li>ブランド思想やプロダクトの方向性、今後のロードマップを来場者に直接訴求</li>
+                    <li>会場サイネージ・特設サイトでの多重露出</li>
+                </ul>
+            </div>
+
+            <!-- Format D: Hackathon -->
+            <div class="format-detail">
+                <div class="format-detail-badge">FORMAT_D</div>
+                <h4>ハッカソン（プレミアム対象）</h4>
+                <p>クリエイター・学生層の参加率が高い企画。実際の制作事例を通じて、プロダクトの魅力を自然に訴求できます。</p>
+                <ul class="format-detail-list">
+                    <li>御社ツールをテーマに作品を制作</li>
+                    <li>作品をそのまま展示し、「この作品は◯◯ツールで制作（◯◯社）」と明記</li>
+                    <li>制作実例を通した自然なプロダクト訴求</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 3: 企業にとっての主な参加メリット -->
+        <section id="section3" class="fade-in">
+            <div class="section-number">03</div>
+            <div class="section-marker">SECTION 03 — KEY BENEFITS</div>
+
+            <h2>企業にとっての<br>主な参加メリット</h2>
+
+            <div class="merit-grid">
+                <div class="merit-card">
+                    <div class="merit-number">MERIT_01</div>
+                    <h4>ブランド・プロダクト認知の最大化</h4>
+                    <p>主催コミュニティ（約6,000名規模）の濃いアーリーアダプター層に対して継続的に露出。AIツールの実ユーザー層に、強く刺さる導線を構築できます。</p>
+                    <ul>
+                        <li>大型展示スペースでのプロダクト掲示</li>
+                        <li>会場サイネージ・特設サイトでのロゴ・製品紹介</li>
+                    </ul>
+                </div>
+
+                <div class="merit-card">
+                    <div class="merit-number">MERIT_02</div>
+                    <h4>クリエイター・学生・エンジニアとの直接交流</h4>
+                    <p>作品制作者とのリアルな対話で、プロダクトが"どのように使われているか"をその場で観察可能。利用者がSNSで自主的に発信しやすい文脈をつくれます。</p>
+                    <ul>
+                        <li>フィードバック収集・βユーザーの発掘に最適</li>
+                        <li>ユーザーコミュニティ内での認知浸透</li>
+                    </ul>
+                </div>
+
+                <div class="merit-card highlight">
+                    <span class="highlight-badge">NOW ONLY</span>
+                    <div class="merit-number">MERIT_03</div>
+                    <h4>初回特典：企業出展は「無償」で参加可能</h4>
+                    <p>先着数社は、ベーシックプランを完全無償でご提供（枠が埋まり次第終了）。「まず参加して存在感を出したい」「予算はこれから」の企業に最適です。</p>
+                </div>
+
+                <div class="merit-card">
+                    <div class="merit-number">MERIT_04</div>
+                    <h4>完全"手離れ型"参加が可能</h4>
+                    <p>プロダクト提供だけでOK。運営側で展示・紹介・導線設計をすべて代行。社内リソースに余裕がない企業でも、"名前を出すだけ"で参加メリットを享受できます。</p>
+                </div>
+
+                <div class="merit-card">
+                    <div class="merit-number">MERIT_05</div>
+                    <h4>キーパーソンメッセージの発信機会</h4>
+                    <p>CEO・PM・担当者からの短尺コメント動画を来場者に直接届けられます。数秒〜の短いコメントで問題ありません。現地不参加でも、存在感とメッセージをしっかり届けられます。</p>
+                </div>
+
+                <div class="merit-card">
+                    <div class="merit-number">MERIT_06</div>
+                    <h4>ビジネス接点の獲得</h4>
+                    <p>中小企業・自治体のDX担当との名刺交換が多数見込まれます。導入相談・PoC相談がその場で発生する可能性も高く、見込み顧客の獲得チャネルとして機能します。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: 規模感・来場者イメージ -->
+        <section id="section4" class="fade-in">
+            <div class="section-number">04</div>
+            <div class="section-marker">SECTION 04 — SCALE & AUDIENCE</div>
+
+            <h2>規模感・来場者イメージ</h2>
+            <p class="section-lead">イベント全体の規模と来場者構成（予測）</p>
+
+            <div class="scale-container">
+                <div class="scale-metrics">
+                    <div class="scale-item">
+                        <div class="scale-value">800-1,200</div>
+                        <div class="scale-label">VISITORS</div>
+                    </div>
+                    <div class="scale-item">
+                        <div class="scale-value">10-20</div>
+                        <div class="scale-label">EXHIBITORS</div>
+                    </div>
+                    <div class="scale-item">
+                        <div class="scale-value">~100</div>
+                        <div class="scale-label">ARTWORKS</div>
+                    </div>
+                    <div class="scale-item">
+                        <div class="scale-value">100-200</div>
+                        <div class="scale-label">BIZ VISITORS</div>
+                    </div>
+                </div>
+
+                <div class="audience-breakdown">
+                    <h4>AUDIENCE BREAKDOWN</h4>
+                    <div class="audience-item">
+                        <span class="audience-percent">30%</span>
+                        <div class="audience-bar">
+                            <div class="audience-bar-fill" style="width: 100%;"></div>
+                        </div>
+                        <span class="audience-name">AIクリエイター</span>
+                    </div>
+                    <div class="audience-item">
+                        <span class="audience-percent">20%</span>
+                        <div class="audience-bar">
+                            <div class="audience-bar-fill" style="width: 66%;"></div>
+                        </div>
+                        <span class="audience-name">学生（情報系・デザイン系）</span>
+                    </div>
+                    <div class="audience-item">
+                        <span class="audience-percent">20%</span>
+                        <div class="audience-bar">
+                            <div class="audience-bar-fill" style="width: 66%;"></div>
+                        </div>
+                        <span class="audience-name">中小企業DX担当</span>
+                    </div>
+                    <div class="audience-item">
+                        <span class="audience-percent">15%</span>
+                        <div class="audience-bar">
+                            <div class="audience-bar-fill" style="width: 50%;"></div>
+                        </div>
+                        <span class="audience-name">エンジニア</span>
+                    </div>
+                    <div class="audience-item">
+                        <span class="audience-percent">15%</span>
+                        <div class="audience-bar">
+                            <div class="audience-bar-fill" style="width: 50%;"></div>
+                        </div>
+                        <span class="audience-name">一般クリエイター・興味層</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: 露出導線 -->
+        <section id="section5" class="fade-in">
+            <div class="section-number">05</div>
+            <div class="section-marker">SECTION 05 — EXPOSURE CHANNELS</div>
+
+            <h2>露出導線</h2>
+            <p class="section-lead">イベント当日だけでなく、その前後でも露出が続きます</p>
+
+            <div class="exposure-grid">
+                <div class="exposure-item">
+                    <div class="exposure-icon">▣</div>
+                    <div class="exposure-content">
+                        <h4>会場サイネージ</h4>
+                        <p>会場内ディスプレイでローテーション表示。来場者の目に繰り返し触れます。</p>
+                    </div>
+                </div>
+
+                <div class="exposure-item">
+                    <div class="exposure-icon">◎</div>
+                    <div class="exposure-content">
+                        <h4>特設サイト</h4>
+                        <p>イベント後も継続して掲載。長期的な導線として機能します。</p>
+                    </div>
+                </div>
+
+                <div class="exposure-item">
+                    <div class="exposure-icon">✕</div>
+                    <div class="exposure-content">
+                        <h4>公式X（Twitter）</h4>
+                        <p>事前告知・イベント中・事後レポートで継続的に発信。フォロワーへの直接リーチ。</p>
+                    </div>
+                </div>
+
+                <div class="exposure-item">
+                    <div class="exposure-icon">▶</div>
+                    <div class="exposure-content">
+                        <h4>ハイライト動画・レポート記事</h4>
+                        <p>イベント後に制作されるコンテンツで継続的に紹介。アーカイブとしての価値も。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exposure-note">
+                → イベント後も、検索・SNS・コミュニティ経由で継続的に目に触れる設計です。
+            </div>
+
+            <div class="info-box mt-60">
+                <p class="eyebrow tight mb-10">CONTACT</p>
+                <p>出展に関するご質問・お申し込みは、下記よりお気軽にお問い合わせください。</p>
+                <p class="mt-30" style="font-family: var(--font-data); letter-spacing: 0.1em;">info@sakurarin.co.jp
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">
+            大阪AI文化万博
+        </div>
+        <div class="footer-data">
+            <span>DOCUMENT: CORPORATE_GUIDE_v2.0</span><br>
+            <span>© 2026 OSAKA AI CULTURE EXPO</span>
+        </div>
+    </footer>
+    <script src="assets/main.js"></script>
+</body>
+
+</html>
