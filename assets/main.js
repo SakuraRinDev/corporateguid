@@ -26,20 +26,31 @@
     );
     
     const state = { scrollProgress: 0, ticking: false };
+    const supportsIO = 'IntersectionObserver' in window;
     
-    const fadeObserver = new IntersectionObserver(
-        (entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        },
-        { threshold: cfg.fadeThreshold }
-    );
-    
-    dom.fadeTargets.forEach(el => fadeObserver.observe(el));
+    // Fade-in trigger (with graceful fallback for older/mobile browsers)
+    if (supportsIO) {
+        const fadeObserver = new IntersectionObserver(
+            (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            {
+                // Trigger a bit earlier so small viewports (mobile) don't miss the animation
+                threshold: Math.min(cfg.fadeThreshold, 0.15),
+                rootMargin: '0px 0px -10% 0px',
+            }
+        );
+        
+        dom.fadeTargets.forEach(el => fadeObserver.observe(el));
+    } else {
+        // If IntersectionObserver is unavailable, just show everything to avoid hidden content.
+        dom.fadeTargets.forEach(el => el.classList.add('visible'));
+    }
     
     function computeScrollProgress() {
         const scrollTop = window.pageYOffset;
